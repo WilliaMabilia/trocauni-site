@@ -1,45 +1,18 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
-
-import { seo } from "@/config/seo";
 
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
-
 export const metadata: Metadata = {
-  metadataBase: new URL(seo.url),
-  title: seo.title,
-  description: seo.description,
-  openGraph: {
-    title: seo.title,
-    description: seo.description,
-    url: seo.url,
-    siteName: seo.siteName,
-    locale: seo.locale,
-    type: "website",
-    images: [
-      {
-        url: seo.ogImage,
-        width: 1200,
-        height: 630,
-        alt: `${seo.siteName} — ${seo.title}`,
-      },
-    ],
+  title: {
+    default: "TrocaUni",
+    template: "%s | TrocaUni",
   },
-  twitter: {
-    card: "summary_large_image",
-    title: seo.title,
-    description: seo.description,
-    images: [seo.ogImage],
+  description:
+    "TrocaUni conecta estudantes por meio de feed, fórum, achados e perdidos e chat.",
+  icons: {
+    icon: "/icon.png",
+    shortcut: "/icon.png",
+    apple: "/icon.png",
   },
 };
 
@@ -50,9 +23,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-BR">
-      <body className={`${geistSans.variable} ${geistMono.variable}`}>
-        {children}
-      </body>
+      <body>{children}</body>
     </html>
   );
 }
