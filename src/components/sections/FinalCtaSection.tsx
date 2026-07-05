@@ -1,146 +1,49 @@
 import Image from "next/image";
 
+import { Button } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
 import { brand } from "@/config/brand";
 
 export function FinalCtaSection() {
   return (
-    <section
-      id="lista-de-espera"
-      className="relative scroll-mt-24 overflow-hidden py-12 sm:py-16 lg:py-20"
-    >
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute left-[-10rem] top-1/2 h-96 w-96 -translate-y-1/2 rounded-full bg-[#397cff]/10 blur-[120px]"
-      />
-
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute right-[-10rem] top-1/2 h-96 w-96 -translate-y-1/2 rounded-full bg-[#ff5f91]/10 blur-[120px]"
-      />
-
+    <section id="lancamento" className="scroll-mt-24 py-14 sm:py-24">
       <Container>
-        <div className="relative mx-auto max-w-7xl">
-          <div
-            aria-hidden="true"
-            className="absolute inset-x-16 bottom-[-2rem] h-24 rounded-[50%] bg-[#7255ee]/18 blur-3xl"
-          />
+        <div className="grid overflow-hidden rounded-[1.5rem] sm:rounded-[2rem] border border-white/80 bg-white/90 shadow-[var(--shadow-elevated)] lg:grid-cols-[0.9fr_1.1fr]">
+          <div className="flex flex-col justify-center p-5 sm:p-10 lg:p-14">
+            <p className="text-sm font-bold uppercase tracking-[0.16em] text-[var(--color-primary)]">Lançamento oficial em breve</p>
+            <h2 className="mt-4 text-balance text-3xl font-black leading-tight tracking-[-0.04em] text-[var(--color-text)] sm:text-5xl">O TrocaUni está chegando ao iOS e Android.</h2>
+            <p className="mt-5 text-base leading-7 text-[var(--color-text-muted)] sm:mt-6 sm:text-lg sm:leading-8">
+              Acompanhe o Instagram oficial e fique por dentro das atualizações e da data de lançamento.
+            </p>
+            <div className="mt-8">
+              <Button
+                href={brand.instagramUrl}
+                target="_blank"
+                rel="noreferrer"
+                aria-label="Acompanhar lançamento no Instagram (abre em nova aba)"
+                className="min-h-12 w-full touch-manipulation sm:w-auto"
+              >
+                Acompanhar lançamento
+              </Button>
+            </div>
+            <p className="mt-5 text-sm leading-6 text-[var(--color-text-muted)]">
+              Os logotipos das lojas na arte são informativos. Os links oficiais serão adicionados após a publicação dos aplicativos.
+            </p>
+          </div>
 
-          <div className="relative aspect-[16/9] overflow-hidden rounded-[1.5rem] shadow-[0_30px_80px_rgba(66,48,150,0.16)] sm:rounded-[2rem] lg:rounded-[2.4rem]">
+          <figure className="relative min-h-[15rem] bg-[var(--color-background-soft)] sm:min-h-[25rem] lg:min-h-full">
             <Image
               src="/images/trocauni-banner-final.png"
-              alt="TrocaUni, seu campus em um aplicativo"
+              alt="Identidade visual do TrocaUni com referência ao lançamento para iOS e Android"
               fill
-              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 90vw, 1280px"
+              sizes="(max-width: 1023px) 100vw, 55vw"
               className="object-cover"
+              loading="lazy"
             />
-
-            <a
-              href={brand.instagramUrl}
-              target="_blank"
-              rel="noreferrer"
-              aria-label="Seguir o TrocaUni no Instagram"
-              className="
-                group
-                absolute
-                left-[69%]
-                top-[63%]
-                z-10
-                inline-flex
-                -translate-x-1/2
-                -translate-y-1/2
-                items-center
-                justify-center
-                gap-1.5
-                whitespace-nowrap
-                rounded-full
-                bg-gradient-to-r
-                from-[#665cff]
-                via-[#b94bdd]
-                to-[#ff6550]
-                px-3
-                py-2
-                text-[10px]
-                font-bold
-                text-white
-                shadow-[0_8px_20px_rgba(102,76,220,0.30)]
-                transition
-                duration-300
-                hover:scale-[1.04]
-                hover:shadow-[0_12px_30px_rgba(102,76,220,0.42)]
-                focus-visible:outline-none
-                focus-visible:ring-2
-                focus-visible:ring-white
-                sm:left-[69%]
-                sm:top-[62%]
-                sm:gap-2
-                sm:px-4
-                sm:py-2.5
-                sm:text-xs
-                md:px-5
-                md:py-3
-                md:text-sm
-                lg:left-[69%]
-                lg:top-[62%]
-                lg:px-6
-                lg:py-3.5
-                lg:text-base
-              "
-            >
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                aria-hidden="true"
-                className="h-3.5 w-3.5 shrink-0 sm:h-4 sm:w-4 md:h-5 md:w-5"
-              >
-                <rect
-                  x="3"
-                  y="3"
-                  width="18"
-                  height="18"
-                  rx="5"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                />
-
-                <circle
-                  cx="12"
-                  cy="12"
-                  r="4"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                />
-
-                <circle
-                  cx="17.4"
-                  cy="6.7"
-                  r="1.1"
-                  fill="currentColor"
-                />
-              </svg>
-
-              <span className="sm:hidden">Instagram</span>
-
-              <span className="hidden sm:inline">
-                Seguir no Instagram
-              </span>
-
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                aria-hidden="true"
-                className="hidden h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-0.5 sm:block md:h-4 md:w-4"
-              >
-                <path
-                  d="M8 5l7 7-7 7"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
-            </a>
-          </div>
+            <figcaption className="absolute bottom-4 right-4 rounded-full bg-white/90 px-4 py-2 text-xs font-bold text-[var(--color-text)] shadow-sm backdrop-blur">
+              Disponível em breve
+            </figcaption>
+          </figure>
         </div>
       </Container>
     </section>

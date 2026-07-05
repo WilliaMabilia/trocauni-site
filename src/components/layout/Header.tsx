@@ -1,37 +1,110 @@
+"use client";
+
 import Link from "next/link";
+import { useEffect, useRef, useState } from "react";
 
 import { Container } from "@/components/ui/Container";
 import { Logo } from "@/components/ui/Logo";
+import { brand } from "@/config/brand";
 import { navigation } from "@/data/navigation";
 
+const linkClasses =
+  "rounded-lg px-3 py-2 text-sm font-semibold text-[var(--color-text-muted)] outline-none transition hover:bg-white/80 hover:text-[var(--color-primary)] focus-visible:ring-2 focus-visible:ring-[var(--color-primary)] focus-visible:ring-offset-2";
+
 export function Header() {
+  const [isOpen, setIsOpen] = useState(false);
+  const firstLinkRef = useRef<HTMLAnchorElement>(null);
+  const menuButtonRef = useRef<HTMLButtonElement>(null);
+
+  useEffect(() => {
+    if (!isOpen) return;
+
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    firstLinkRef.current?.focus();
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setIsOpen(false);
+        menuButtonRef.current?.focus();
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [isOpen]);
+
+  const closeMenu = () => setIsOpen(false);
+
   return (
-    <header className="sticky top-0 z-50 border-b border-white/70 bg-white/85 shadow-[0_8px_30px_rgba(52,40,110,0.05)] backdrop-blur-xl">
-      <Container className="flex flex-col gap-2 py-3 md:min-h-[5.5rem] md:flex-row md:items-center md:justify-between md:gap-6 md:py-0">
-        <div className="flex w-full items-center justify-center md:w-auto md:justify-start">
-          <Logo size="md" />
-        </div>
+    <header className="sticky top-0 z-50 border-b border-white/70 bg-white/90 shadow-[0_8px_30px_rgba(52,40,110,0.05)] backdrop-blur-xl">
+      <Container className="flex min-h-[4.75rem] items-center justify-between gap-4 py-3 lg:min-h-[5.5rem] lg:py-0">
+        <Logo size="md" />
 
-        <nav
-          aria-label="Navegação principal"
-          className="grid w-full grid-cols-3 gap-1 border-t border-[#ece8f7] pt-2 md:flex md:w-auto md:items-center md:gap-7 md:border-0 md:pt-0"
-        >
+        <nav aria-label="Navegação principal" className="hidden items-center gap-1 lg:flex">
           {navigation.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              className="group relative flex min-h-10 items-center justify-center rounded-xl px-2 py-2 text-center text-[11px] font-semibold leading-tight text-[var(--color-text-muted)] outline-none transition hover:bg-white/80 hover:text-[var(--color-primary)] focus-visible:ring-2 focus-visible:ring-[var(--color-primary)] focus-visible:ring-offset-2 sm:text-xs md:min-h-0 md:justify-start md:rounded-lg md:px-1 md:text-sm"
-            >
-              <span>{item.label}</span>
-
-              <span
-                aria-hidden="true"
-                className="absolute inset-x-2 bottom-0 h-0.5 origin-center scale-x-0 rounded-full bg-gradient-to-r from-[#5d6cff] via-[#a64bea] to-[#ff6a64] transition-transform duration-300 group-hover:scale-x-100 md:inset-x-1 md:origin-left"
-              />
+            <Link key={item.href} href={item.href} className={linkClasses}>
+              {item.label}
             </Link>
           ))}
+          <Link
+            href={brand.instagramUrl}
+            target="_blank"
+            rel="noreferrer"
+            aria-label="Acompanhar lançamento no Instagram (abre em nova aba)"
+            className="ml-3 inline-flex min-h-11 items-center justify-center rounded-[var(--radius-button)] px-5 py-2.5 text-sm font-semibold text-white shadow-[var(--shadow-card)] outline-none transition hover:-translate-y-0.5 focus-visible:ring-2 focus-visible:ring-[var(--color-primary)] focus-visible:ring-offset-2 [background:var(--gradient-primary)]"
+          >
+            Acompanhar lançamento
+          </Link>
         </nav>
+
+        <button
+          ref={menuButtonRef}
+          type="button"
+          aria-expanded={isOpen}
+          aria-controls="mobile-navigation"
+          aria-label={isOpen ? "Fechar menu" : "Abrir menu"}
+          onClick={() => setIsOpen((open) => !open)}
+          className="inline-flex min-h-11 min-w-11 touch-manipulation items-center justify-center rounded-xl border border-[var(--color-border)] bg-white text-[var(--color-text)] outline-none transition hover:border-[var(--color-primary)] focus-visible:ring-2 focus-visible:ring-[var(--color-primary)] focus-visible:ring-offset-2 lg:hidden"
+        >
+          <span aria-hidden="true" className="relative block h-5 w-6">
+            <span className={`absolute left-0 top-0.5 h-0.5 w-6 rounded bg-current transition ${isOpen ? "translate-y-2 rotate-45" : ""}`} />
+            <span className={`absolute left-0 top-2.5 h-0.5 w-6 rounded bg-current transition ${isOpen ? "opacity-0" : ""}`} />
+            <span className={`absolute left-0 top-[1.125rem] h-0.5 w-6 rounded bg-current transition ${isOpen ? "-translate-y-2 -rotate-45" : ""}`} />
+          </span>
+        </button>
       </Container>
+
+      {isOpen && (
+        <div id="mobile-navigation" className="fixed inset-x-0 top-[4.75rem] z-50 h-[calc(100dvh-4.75rem)] overflow-y-auto overscroll-contain bg-white/98 px-4 py-5 pb-[max(1.25rem,env(safe-area-inset-bottom))] backdrop-blur-xl sm:px-6 sm:py-6 lg:hidden">
+          <nav aria-label="Navegação principal em dispositivos móveis" className="mx-auto flex max-w-lg flex-col gap-2">
+            {navigation.map((item, index) => (
+              <Link
+                ref={index === 0 ? firstLinkRef : undefined}
+                key={item.href}
+                href={item.href}
+                onClick={closeMenu}
+                className="flex min-h-12 touch-manipulation items-center rounded-xl px-4 text-base font-semibold text-[var(--color-text)] outline-none transition hover:bg-[var(--color-background-soft)] hover:text-[var(--color-primary)] focus-visible:ring-2 focus-visible:ring-[var(--color-primary)]"
+              >
+                {item.label}
+              </Link>
+            ))}
+            <Link
+              href={brand.instagramUrl}
+              target="_blank"
+              rel="noreferrer"
+              onClick={closeMenu}
+              aria-label="Acompanhar lançamento no Instagram (abre em nova aba)"
+              className="mt-3 inline-flex min-h-12 touch-manipulation items-center justify-center rounded-[var(--radius-button)] px-5 py-3 text-base font-semibold text-white outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-primary)] focus-visible:ring-offset-2 [background:var(--gradient-primary)]"
+            >
+              Acompanhar lançamento
+            </Link>
+          </nav>
+        </div>
+      )}
     </header>
   );
 }

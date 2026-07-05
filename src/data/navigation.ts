@@ -1,14 +1,6 @@
 export const navigation = [
-  {
-    label: "Início",
-    href: "/#inicio",
-  },
-  {
-    label: "Recursos",
-    href: "/#recursos",
-  },
-  {
-    label: "Por que o TrocaUni",
-    href: "/#por-que",
-  },
+  { label: "Início", href: "/#inicio" },
+  { label: "Recursos", href: "/#recursos" },
+  { label: "Segurança", href: "/#seguranca" },
+  { label: "Contato", href: "/contato/" },
 ] as const;
