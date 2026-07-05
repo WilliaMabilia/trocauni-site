@@ -41,7 +41,7 @@ export function Footer() {
             target="_blank"
             rel="noreferrer"
             aria-label="Instagram do TrocaUni (abre em nova aba)"
-            className="inline-flex min-h-11 touch-manipulation items-center rounded-md text-sm font-semibold text-[var(--color-text-muted)] outline-none transition hover:text-[var(--color-primary)] focus-visible:ring-2 focus-visible:ring-[var(--color-primary)] focus-visible:ring-offset-2"
+            className="inline-flex min-h-11 touch-manipulation items-center justify-center rounded-full bg-[linear-gradient(100deg,#635bff_0%,#a855f7_45%,#ec4899_72%,#ff6b35_100%)] px-4 text-sm font-bold text-white shadow-sm outline-none transition hover:-translate-y-0.5 hover:brightness-105 focus-visible:ring-2 focus-visible:ring-[#a855f7] focus-visible:ring-offset-2 active:translate-y-0"
           >
             Instagram ↗
           </Link>

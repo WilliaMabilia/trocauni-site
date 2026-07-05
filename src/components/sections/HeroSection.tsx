@@ -5,6 +5,26 @@ import { Container } from "@/components/ui/Container";
 import { PhoneMockup } from "@/components/ui/PhoneMockup";
 import { StoreBadges } from "@/components/ui/StoreBadges";
 
+
+function InstagramIcon() {
+  return (
+    <svg
+      aria-hidden="true"
+      viewBox="0 0 24 24"
+      className="h-5 w-5 shrink-0"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <rect width="18" height="18" x="3" y="3" rx="5" />
+      <circle cx="12" cy="12" r="4" />
+      <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none" />
+    </svg>
+  );
+}
+
 const quickFeatures = [
   { name: "Feed", description: "Compartilhe novidades e materiais" },
   { name: "Fórum", description: "Pergunte, responda e colabore" },
@@ -32,7 +52,7 @@ export function HeroSection() {
               Conecte-se à sua comunidade universitária para compartilhar informações, encontrar materiais acadêmicos, participar de discussões, localizar objetos perdidos e conversar em um só lugar.
             </p>
             <div className="mt-7 flex flex-col gap-3 sm:mt-8 sm:flex-row sm:flex-wrap">
-              <Button href="/#recursos" className="min-h-12 w-full touch-manipulation sm:w-auto">
+              <Button href="/#recursos" className="min-h-12 w-full touch-manipulation gap-2 sm:w-auto">
                 Conhecer os recursos
               </Button>
               <Button
@@ -41,8 +61,9 @@ export function HeroSection() {
                 rel="noreferrer"
                 variant="secondary"
                 aria-label="Acompanhar lançamento no Instagram (abre em nova aba)"
-                className="min-h-12 w-full touch-manipulation sm:w-auto"
+                className="min-h-12 w-full touch-manipulation gap-2 sm:w-auto"
               >
+                <InstagramIcon />
                 Acompanhar lançamento
               </Button>
             </div>
