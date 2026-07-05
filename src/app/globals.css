@@ -96,3 +96,86 @@ body {
   }
 }
 
+/* Interações leves para mobile */
+@keyframes mobile-card-enter {
+  from {
+    opacity: 0;
+    transform: translateY(18px) scale(0.98);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.mobile-card-motion {
+  animation: mobile-card-enter 480ms ease-out both;
+  transition:
+    transform 160ms ease,
+    box-shadow 160ms ease,
+    border-color 160ms ease;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.mobile-card-motion:nth-child(1) {
+  animation-delay: 40ms;
+}
+
+.mobile-card-motion:nth-child(2) {
+  animation-delay: 100ms;
+}
+
+.mobile-card-motion:nth-child(3) {
+  animation-delay: 160ms;
+}
+
+.mobile-card-motion:nth-child(4) {
+  animation-delay: 220ms;
+}
+
+.mobile-card-motion:active {
+  transform: translateY(2px) scale(0.96);
+  box-shadow: 0 8px 20px rgba(72, 55, 145, 0.12);
+}
+
+.mobile-button-motion {
+  transition:
+    transform 140ms ease,
+    box-shadow 140ms ease,
+    opacity 140ms ease;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.mobile-button-motion:active {
+  transform: scale(0.95);
+  opacity: 0.92;
+}
+
+@media (min-width: 1024px) {
+  .mobile-card-motion {
+    animation: none;
+  }
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .mobile-card-motion:hover {
+    transform: translateY(-4px);
+  }
+
+  .mobile-button-motion:hover {
+    transform: translateY(-2px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mobile-card-motion,
+  .mobile-button-motion {
+    animation: none !important;
+    transition: none !important;
+    transform: none !important;
+  }
+}
+/* Fim das interações leves para mobile */

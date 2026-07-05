@@ -1,7 +1,9 @@
 import type { MetadataRoute } from "next";
 
+export const dynamic = "force-static";
+
 export default function robots(): MetadataRoute.Robots {
-  const baseUrl = "https://trocauni.com.br";
+  const baseUrl = "https://www.trocauni.com.br";
 
   return {
     rules: {

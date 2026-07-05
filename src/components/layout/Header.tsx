@@ -8,7 +8,6 @@ import { Logo } from "@/components/ui/Logo";
 import { brand } from "@/config/brand";
 import { navigation } from "@/data/navigation";
 
-
 function InstagramIcon() {
   return (
     <svg
@@ -51,6 +50,7 @@ export function Header() {
     };
 
     window.addEventListener("keydown", handleKeyDown);
+
     return () => {
       document.body.style.overflow = previousOverflow;
       window.removeEventListener("keydown", handleKeyDown);
@@ -64,12 +64,16 @@ export function Header() {
       <Container className="flex min-h-[4.75rem] items-center justify-between gap-4 py-3 lg:min-h-[5.5rem] lg:py-0">
         <Logo size="md" />
 
-        <nav aria-label="Navegação principal" className="hidden items-center gap-1 lg:flex">
+        <nav
+          aria-label="Navegação principal"
+          className="hidden items-center gap-1 lg:flex"
+        >
           {navigation.map((item) => (
             <Link key={item.href} href={item.href} className={linkClasses}>
               {item.label}
             </Link>
           ))}
+
           <Link
             href={brand.instagramUrl}
             target="_blank"
@@ -92,16 +96,34 @@ export function Header() {
           className="inline-flex min-h-11 min-w-11 touch-manipulation items-center justify-center rounded-xl border border-[var(--color-border)] bg-white text-[var(--color-text)] outline-none transition hover:border-[var(--color-primary)] focus-visible:ring-2 focus-visible:ring-[var(--color-primary)] focus-visible:ring-offset-2 lg:hidden"
         >
           <span aria-hidden="true" className="relative block h-5 w-6">
-            <span className={`absolute left-0 top-0.5 h-0.5 w-6 rounded bg-current transition ${isOpen ? "translate-y-2 rotate-45" : ""}`} />
-            <span className={`absolute left-0 top-2.5 h-0.5 w-6 rounded bg-current transition ${isOpen ? "opacity-0" : ""}`} />
-            <span className={`absolute left-0 top-[1.125rem] h-0.5 w-6 rounded bg-current transition ${isOpen ? "-translate-y-2 -rotate-45" : ""}`} />
+            <span
+              className={`absolute left-0 top-0.5 h-0.5 w-6 rounded bg-current transition ${
+                isOpen ? "translate-y-2 rotate-45" : ""
+              }`}
+            />
+            <span
+              className={`absolute left-0 top-2.5 h-0.5 w-6 rounded bg-current transition ${
+                isOpen ? "opacity-0" : ""
+              }`}
+            />
+            <span
+              className={`absolute left-0 top-[1.125rem] h-0.5 w-6 rounded bg-current transition ${
+                isOpen ? "-translate-y-2 -rotate-45" : ""
+              }`}
+            />
           </span>
         </button>
       </Container>
 
       {isOpen && (
-        <div id="mobile-navigation" className="fixed inset-x-0 top-[4.75rem] z-50 h-[calc(100dvh-4.75rem)] overflow-y-auto overscroll-contain bg-white/98 px-4 py-5 pb-[max(1.25rem,env(safe-area-inset-bottom))] backdrop-blur-xl sm:px-6 sm:py-6 lg:hidden">
-          <nav aria-label="Navegação principal em dispositivos móveis" className="mx-auto flex max-w-lg flex-col gap-2">
+        <div
+          id="mobile-navigation"
+          className="absolute inset-x-0 top-full z-[60] h-[calc(100dvh-4.75rem)] overflow-y-auto overscroll-contain border-t border-white/70 bg-white px-4 py-5 pb-[max(1.25rem,env(safe-area-inset-bottom))] shadow-[0_24px_60px_rgba(38,30,82,0.14)] sm:px-6 sm:py-6 lg:hidden"
+        >
+          <nav
+            aria-label="Navegação principal em dispositivos móveis"
+            className="mx-auto flex max-w-lg flex-col gap-2"
+          >
             {navigation.map((item, index) => (
               <Link
                 ref={index === 0 ? firstLinkRef : undefined}
@@ -113,6 +135,7 @@ export function Header() {
                 {item.label}
               </Link>
             ))}
+
             <Link
               href={brand.instagramUrl}
               target="_blank"
