@@ -1,11 +1,13 @@
 import type { Metadata } from "next";
 
+import { brand } from "@/config/brand";
 import { seo } from "@/config/seo";
 
 import "./globals.css";
 
 export const metadata: Metadata = {
   metadataBase: new URL(seo.url),
+  applicationName: seo.siteName,
   title: {
     default: seo.title,
     template: "%s",
@@ -33,12 +35,26 @@ export const metadata: Metadata = {
     description: seo.description,
     images: [seo.ogImage],
   },
-  icons: {
-    icon: "/icon.png",
-    shortcut: "/icon.png",
-    apple: "/icon.png",
-  },
 };
+
+const structuredData = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    name: seo.siteName,
+    url: seo.url,
+    logo: `${seo.url}/icon.png`,
+    email: brand.email,
+    sameAs: [brand.instagramUrl],
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: seo.siteName,
+    url: seo.url,
+    inLanguage: "pt-BR",
+  },
+];
 
 export default function RootLayout({
   children,
@@ -47,7 +63,15 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-BR">
-      <body>{children}</body>
+      <body>
+        {children}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(structuredData).replace(/</g, "\\u003c"),
+          }}
+        />
+      </body>
     </html>
   );
 }
