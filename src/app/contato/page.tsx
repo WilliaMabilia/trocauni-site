@@ -8,6 +8,9 @@ export const metadata: Metadata = {
   title: `Contato | ${brand.name}`,
   description:
     "Entre em contato com a equipe do TrocaUni.",
+  alternates: {
+    canonical: `${brand.domain}/contato/`,
+  },
 };
 
 export default function ContactPage() {

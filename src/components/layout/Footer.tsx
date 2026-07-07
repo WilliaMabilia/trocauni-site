@@ -17,12 +17,12 @@ export function Footer() {
       <Container className="grid gap-8 lg:grid-cols-[1fr_auto] lg:items-end">
         <div>
           <Logo size="md" />
-          <p className="mt-4 max-w-xl leading-7 text-[var(--color-text-muted)]">
+          <p className="mt-4 max-w-xl text-sm leading-7 text-[var(--color-text-muted)] sm:text-base">
             TrocaUni — conectando informação, colaboração e conversas na vida universitária.
           </p>
         </div>
 
-        <nav aria-label="Links institucionais" className="grid grid-cols-2 gap-x-4 gap-y-2 sm:flex sm:flex-wrap sm:gap-x-5 sm:gap-y-3 lg:justify-end">
+        <nav aria-label="Links institucionais" className="grid grid-cols-1 gap-2 sm:flex sm:flex-wrap sm:gap-x-5 sm:gap-y-3 lg:justify-end">
           {footerLinks.map((item) => {
             const isCurrent = pathname === item.href || pathname === `${item.href}/`;
             return (
@@ -41,7 +41,7 @@ export function Footer() {
             target="_blank"
             rel="noreferrer"
             aria-label="Instagram do TrocaUni (abre em nova aba)"
-            className="inline-flex min-h-11 touch-manipulation items-center justify-center rounded-full bg-[linear-gradient(100deg,#635bff_0%,#a855f7_45%,#ec4899_72%,#ff6b35_100%)] px-4 text-sm font-bold text-white shadow-sm outline-none transition hover:-translate-y-0.5 hover:brightness-105 focus-visible:ring-2 focus-visible:ring-[#a855f7] focus-visible:ring-offset-2 active:translate-y-0"
+            className="inline-flex min-h-11 w-full touch-manipulation items-center justify-center rounded-full bg-[linear-gradient(100deg,#635bff_0%,#a855f7_45%,#ec4899_72%,#ff6b35_100%)] px-4 text-sm font-bold text-white shadow-sm outline-none transition hover:-translate-y-0.5 hover:brightness-105 focus-visible:ring-2 focus-visible:ring-[#a855f7] focus-visible:ring-offset-2 active:translate-y-0 sm:w-auto"
           >
             Instagram ↗
           </Link>

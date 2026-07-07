@@ -12,6 +12,10 @@ export const footerLinks = [
     href: "/regras-da-comunidade",
   },
   {
+    label: "Exclusão de conta",
+    href: "/exclusao-de-conta",
+  },
+  {
     label: "Contato",
     href: "/contato",
   },

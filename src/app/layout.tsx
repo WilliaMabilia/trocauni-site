@@ -21,8 +21,8 @@ export const metadata: Metadata = {
     images: [
       {
         url: seo.ogImage,
-        width: 1000,
-        height: 667,
+        width: 1200,
+        height: 630,
         alt: "TrocaUni — seu campus em um app",
       },
     ],

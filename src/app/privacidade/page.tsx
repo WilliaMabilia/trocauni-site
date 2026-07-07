@@ -7,6 +7,9 @@ export const metadata: Metadata = {
   title: `Política de Privacidade | ${brand.name}`,
   description:
     "Saiba como o TrocaUni coleta, utiliza, armazena, protege e compartilha dados pessoais.",
+  alternates: {
+    canonical: `${brand.domain}/privacidade/`,
+  },
 };
 
 export default function PrivacyPage() {
@@ -18,9 +21,9 @@ export default function PrivacyPage() {
     >
       <div className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-background-soft)] p-5">
         <p className="font-semibold text-[var(--color-text)]">
-          Última atualização: 2 de maio de 2026
+          Última atualização: 7 de julho de 2026
         </p>
-        <p className="mt-1 text-sm">Versão: 2026-05-02-v1</p>
+        <p className="mt-1 text-sm">Versão: 2026-07-07-v1</p>
       </div>
 
       <section>
@@ -52,7 +55,8 @@ export default function PrivacyPage() {
         <ul className="mt-3 list-disc space-y-2 pl-6">
           <li>
             <strong>Dados de cadastro:</strong> nome, e-mail, foto de perfil,
-            identificador da conta e informações de autenticação;
+            identificador da conta e informações de autenticação por Google,
+            Apple ou outros meios disponíveis;
           </li>
           <li>
             <strong>Dados acadêmicos e de perfil:</strong> universidade, campus,
@@ -61,12 +65,14 @@ export default function PrivacyPage() {
           </li>
           <li>
             <strong>Conteúdo e interações:</strong> publicações, comentários,
-            respostas, curtidas, fóruns, anúncios, eventos e demais conteúdos
-            enviados à plataforma;
+            respostas, curtidas, tópicos de Fórum, itens de Achados e Perdidos,
+            mensagens de Chat, anúncios, eventos e demais conteúdos enviados à
+            plataforma;
           </li>
           <li>
-            <strong>Comunicações:</strong> mensagens, solicitações de suporte e
-            comunicações enviadas pelos canais oficiais;
+            <strong>Comunicações e anexos:</strong> mensagens, imagens,
+            arquivos, anexos, solicitações de suporte e comunicações enviadas
+            pelos canais oficiais;
           </li>
           <li>
             <strong>Segurança e moderação:</strong> denúncias, bloqueios,
@@ -83,9 +89,10 @@ export default function PrivacyPage() {
             informações necessárias para segurança e funcionamento;
           </li>
           <li>
-            <strong>Dados de uso:</strong> ações realizadas, recursos acessados,
-            datas, horários e registros necessários para análise de desempenho,
-            prevenção de abuso e auditoria.
+            <strong>Dados de uso e presença:</strong> ações realizadas, recursos
+            acessados, presença e atividade em tempo real, datas, horários e
+            registros necessários para análise de desempenho, prevenção de abuso
+            e auditoria.
           </li>
         </ul>
       </section>
@@ -101,11 +108,13 @@ export default function PrivacyPage() {
           <li>criar, autenticar, manter e proteger a conta do usuário;</li>
           <li>exibir o perfil e as informações escolhidas pelo usuário;</li>
           <li>
-            permitir publicações, comentários, fóruns, mensagens, anúncios,
-            eventos e demais funcionalidades;
+            permitir Feed, Fórum, Achados e Perdidos, Chat, publicações,
+            comentários, mensagens, anúncios, eventos, imagens, anexos e demais
+            funcionalidades;
           </li>
           <li>enviar notificações e comunicações relacionadas ao serviço;</li>
           <li>processar denúncias e aplicar medidas de moderação;</li>
+          <li>registrar bloqueios e preferências de segurança entre usuários;</li>
           <li>prevenir fraude, spam, abuso e acesso não autorizado;</li>
           <li>
             diagnosticar erros e melhorar segurança, estabilidade, desempenho e
@@ -148,8 +157,9 @@ export default function PrivacyPage() {
         <p className="mt-3">
           Algumas informações poderão ser exibidas para outros usuários de
           acordo com o funcionamento da plataforma e com as configurações
-          disponíveis, incluindo nome, avatar, universidade, curso, publicações,
-          comentários, anúncios e outras interações públicas.
+          disponíveis, incluindo nome, avatar, universidade, curso, publicações
+          no Feed, comentários, tópicos e respostas no Fórum, itens de Achados e
+          Perdidos, anúncios e outras interações públicas.
         </p>
 
         <p className="mt-3">
@@ -165,9 +175,10 @@ export default function PrivacyPage() {
 
         <p className="mt-3">
           Dados relacionados a publicações, comentários, fóruns, mensagens,
-          denúncias, notificações e ações administrativas poderão ser analisados
-          para investigar violações, prevenir abusos, proteger usuários e
-          aplicar medidas de segurança ou moderação.
+          imagens, anexos, denúncias, bloqueios, notificações e ações
+          administrativas poderão ser analisados para investigar violações,
+          prevenir abusos, proteger usuários e aplicar medidas de segurança ou
+          moderação.
         </p>
 
         <p className="mt-3">
@@ -221,14 +232,19 @@ export default function PrivacyPage() {
 
         <p className="mt-3">
           O TrocaUni utiliza serviços de infraestrutura tecnológica, incluindo
-          recursos do Google Firebase, como Firebase Authentication, Cloud
-          Firestore, Cloud Storage, Cloud Functions, Firebase Cloud Messaging e
-          outros serviços necessários para autenticação, banco de dados,
-          armazenamento, processamento, notificações e segurança.
+          recursos do Google Firebase necessários para autenticação, banco de
+          dados, armazenamento, processamento, notificações e segurança.
         </p>
 
         <p className="mt-3">
-          Esses fornecedores poderão processar dados de acordo com suas
+          Também podem ser usados serviços do Google e da Apple para
+          autenticação, incluindo login com Google e Sign in with Apple. Quando
+          aplicável, a autorização do Sign in with Apple é revogada no fluxo de
+          exclusão da conta.
+        </p>
+
+        <p className="mt-3">
+          Firebase, Google e Apple poderão processar dados de acordo com suas
           atribuições técnicas, contratos aplicáveis, configurações do serviço e
           respectivas políticas de privacidade.
         </p>
@@ -256,10 +272,9 @@ export default function PrivacyPage() {
         </h2>
 
         <p className="mt-3">
-          Os dados serão mantidos pelo período necessário para fornecer o
-          serviço, cumprir as finalidades descritas nesta Política, proteger a
-          comunidade, resolver disputas, atender obrigações legais e exercer
-          direitos.
+          Os dados são mantidos pelo período necessário para cumprir a
+          finalidade, proteger a comunidade, prevenir abuso ou atender
+          obrigações legais.
         </p>
 
         <p className="mt-3">
@@ -361,6 +376,18 @@ export default function PrivacyPage() {
           interações coletivas poderão não desaparecer imediatamente de todas as
           visualizações, especialmente quando sua preservação for necessária
           para manter o contexto, a segurança ou direitos de outros usuários.
+        </p>
+
+        <p className="mt-3">
+          Informações específicas sobre o procedimento estão disponíveis na
+          página de{" "}
+          <a
+            href="/exclusao-de-conta/"
+            className="font-semibold text-[var(--color-primary)] hover:underline"
+          >
+            exclusão de conta
+          </a>
+          .
         </p>
       </section>
 

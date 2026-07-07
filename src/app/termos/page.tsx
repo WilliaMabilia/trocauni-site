@@ -7,6 +7,9 @@ export const metadata: Metadata = {
   title: `Termos de Uso | ${brand.name}`,
   description:
     "Consulte os Termos de Uso que regulam o acesso e a utilização da plataforma TrocaUni.",
+  alternates: {
+    canonical: `${brand.domain}/termos/`,
+  },
 };
 
 export default function TermsPage() {
@@ -18,9 +21,9 @@ export default function TermsPage() {
     >
       <div className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-background-soft)] p-5">
         <p className="font-semibold text-[var(--color-text)]">
-          Última atualização: 2 de maio de 2026
+          Última atualização: 7 de julho de 2026
         </p>
-        <p className="mt-1 text-sm">Versão: 2026-05-02-v1</p>
+        <p className="mt-1 text-sm">Versão: 2026-07-07-v1</p>
       </div>
 
       <section>
@@ -105,6 +108,12 @@ export default function TermsPage() {
           divulgar eventos, oferecer ou buscar produtos e serviços permitidos e
           denunciar conteúdos ou comportamentos inadequados.
         </p>
+
+        <p className="mt-3">
+          O Feed também pode ser usado para divulgar materiais acadêmicos
+          permitidos, como livros, jalecos, calculadoras, apostilas e outros
+          itens compatíveis com a finalidade universitária da comunidade.
+        </p>
       </section>
 
       <section>
@@ -135,6 +144,10 @@ export default function TermsPage() {
             ou pelas regras da plataforma;
           </li>
           <li>
+            anunciar itens ilegais, proibidos, falsificados, perigosos ou que
+            violem direitos de terceiros;
+          </li>
+          <li>
             tentar acessar contas, dados, sistemas ou áreas administrativas sem
             autorização;
           </li>
@@ -158,6 +171,12 @@ export default function TermsPage() {
           O usuário é responsável pelos conteúdos que publica, envia, comenta,
           anuncia ou compartilha no TrocaUni e declara possuir os direitos e
           autorizações necessários para sua utilização.
+        </p>
+
+        <p className="mt-3">
+          Em anúncios ou divulgações, o usuário é responsável pela veracidade
+          das informações, imagens, condições, disponibilidade, preço combinado
+          e demais detalhes apresentados a outros usuários.
         </p>
 
         <p className="mt-3">
@@ -190,9 +209,14 @@ export default function TermsPage() {
         <p className="mt-3">
           Cada usuário é responsável por avaliar a outra parte, verificar
           informações, negociar condições e adotar cuidados de segurança. O
-          TrocaUni não participa diretamente do pagamento, entrega, execução ou
-          garantia das negociações, salvo quando uma funcionalidade indicar
-          expressamente o contrário.
+          TrocaUni não processa pagamentos, não participa da entrega e não
+          garante qualidade, estado, autenticidade, disponibilidade, entrega ou
+          pagamento em negociações entre usuários.
+        </p>
+
+        <p className="mt-3">
+          As negociações são feitas diretamente entre usuários. Itens ilegais,
+          proibidos ou falsificados não podem ser anunciados.
         </p>
       </section>
 
@@ -224,6 +248,12 @@ export default function TermsPage() {
         <p className="mt-3">
           As medidas poderão considerar a natureza, a gravidade, a recorrência,
           os riscos envolvidos e o histórico da conta.
+        </p>
+
+        <p className="mt-3">
+          O TrocaUni pode moderar, remover ou restringir conteúdo quando houver
+          indícios de violação destes Termos, das Regras da Comunidade, da
+          legislação ou da segurança da plataforma.
         </p>
       </section>
 
@@ -328,6 +358,12 @@ export default function TermsPage() {
         </p>
 
         <p className="mt-3">
+          Suspensão, banimento e exclusão voluntária são situações diferentes. A
+          suspensão ou o banimento decorrem de medida de segurança ou moderação.
+          A exclusão voluntária é solicitada pelo próprio usuário.
+        </p>
+
+        <p className="mt-3">
           O TrocaUni poderá limitar, suspender ou encerrar contas que violem
           estes Termos, as Regras da Comunidade, direitos de terceiros, a
           legislação aplicável ou a segurança da plataforma.
@@ -337,6 +373,13 @@ export default function TermsPage() {
           Determinados registros poderão ser preservados quando necessários ao
           cumprimento de obrigação legal, prevenção de fraude, segurança,
           auditoria, exercício regular de direitos ou resolução de disputas.
+        </p>
+
+        <p className="mt-3">
+          Após a exclusão voluntária, alguns conteúdos podem permanecer
+          anonimizados quando necessário para preservar a integridade de
+          conversas, tópicos, respostas, mensagens ou outras interações da
+          comunidade.
         </p>
       </section>
 

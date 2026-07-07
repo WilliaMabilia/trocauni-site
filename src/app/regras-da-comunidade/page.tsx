@@ -7,6 +7,9 @@ export const metadata: Metadata = {
   title: `Regras da Comunidade | ${brand.name}`,
   description:
     "Conheça as regras criadas para manter a comunidade TrocaUni segura, respeitosa e colaborativa.",
+  alternates: {
+    canonical: `${brand.domain}/regras-da-comunidade/`,
+  },
 };
 
 const rules = [
@@ -59,21 +62,37 @@ const rules = [
     ],
   },
   {
-    title: "8. Chat e mensagens",
+    title: "8. Materiais acadêmicos",
     paragraphs: [
-      "O chat deve ser utilizado com respeito. Mensagens ofensivas, assédio, insistência indesejada, ameaças, golpes ou envio de conteúdo inadequado poderão resultar em denúncia e penalidade.",
+      "Materiais acadêmicos anunciados no TrocaUni devem ser permitidos, descritos com clareza e compatíveis com a finalidade universitária da comunidade.",
+      "Não é permitido anunciar itens ilegais, itens proibidos, materiais falsificados, produtos perigosos, medicamentos sujeitos a controle, documentos pessoais, anúncios enganosos, golpes ou cobranças fora do combinado.",
+    ],
+  },
+  {
+    title: "9. Achados e Perdidos",
+    paragraphs: [
+      "Use Achados e Perdidos somente para ajudar na recuperação responsável de objetos encontrados ou perdidos.",
+      "Não reivindique falsamente um item, não publique documento pessoal de terceiro sem proteção, não divulgue dados sensíveis, não exija pagamento abusivo para devolver objeto e não use a funcionalidade para fraude.",
+      "Evite publicar imagens desnecessárias de documentos pessoais. Quando uma informação for indispensável para identificação do item, proteja dados que não precisam ficar visíveis.",
+    ],
+  },
+  {
+    title: "10. Chat e mensagens",
+    paragraphs: [
+      "O chat deve ser utilizado com respeito. Mensagens ofensivas, assédio, insistência indesejada, spam, golpes, ameaças ou envio de conteúdo inadequado poderão resultar em denúncia e penalidade.",
+      "Não use o Chat para coleta indevida de dados, envio de conteúdo ilegal, tentativa de pagamento fraudulento, links perigosos ou qualquer abordagem que coloque outra pessoa em risco.",
       "Respeite quando outra pessoa demonstrar que não deseja continuar uma conversa.",
     ],
   },
   {
-    title: "9. Propriedade intelectual",
+    title: "11. Propriedade intelectual",
     paragraphs: [
       "Não publique conteúdo protegido por direitos autorais, marcas ou outros direitos de terceiros sem autorização ou fundamento legal.",
       "Ao utilizar materiais de terceiros, informe a autoria e a fonte quando aplicável.",
     ],
   },
   {
-    title: "10. Denúncias",
+    title: "12. Denúncias",
     paragraphs: [
       "Usuários poderão denunciar conteúdos, perfis, mensagens ou comportamentos que possam violar estas regras.",
       "As denúncias serão avaliadas conforme o contexto, as informações disponíveis, a gravidade, a recorrência e os riscos envolvidos.",
@@ -81,14 +100,14 @@ const rules = [
     ],
   },
   {
-    title: "11. Penalidades",
+    title: "13. Penalidades",
     paragraphs: [
       "Violações poderão resultar em orientação, aviso, redução de visibilidade, ocultação ou remoção de conteúdo, limitação de funcionalidades, bloqueio temporário, suspensão ou encerramento da conta.",
       "As medidas poderão ser aplicadas de forma progressiva ou imediata, dependendo da gravidade do caso e do risco para a comunidade.",
     ],
   },
   {
-    title: "12. Uso responsável",
+    title: "14. Uso responsável",
     paragraphs: [
       "Use o TrocaUni para construir uma comunidade universitária mais segura, útil e colaborativa.",
       "Seja educado, ajude quando puder, verifique informações antes de compartilhá-las, evite conflitos desnecessários e respeite os limites das outras pessoas.",
@@ -105,9 +124,9 @@ export default function CommunityGuidelinesPage() {
     >
       <div className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-background-soft)] p-5">
         <p className="font-semibold text-[var(--color-text)]">
-          Última atualização: 2 de maio de 2026
+          Última atualização: 7 de julho de 2026
         </p>
-        <p className="mt-1 text-sm">Versão: 2026-05-02-v1</p>
+        <p className="mt-1 text-sm">Versão: 2026-07-07-v1</p>
       </div>
 
       <section>
@@ -144,7 +163,7 @@ export default function CommunityGuidelinesPage() {
 
       <section>
         <h2 className="text-2xl font-bold text-[var(--color-text)]">
-          13. Contato
+          15. Contato
         </h2>
 
         <p className="mt-3">
